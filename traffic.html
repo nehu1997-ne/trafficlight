@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic light</title>
+    <link rel="stylesheet" href="traffic.css">
+</head>
+<body>
+    <div class="container1">
+        <div class="circle red" color="red"></div>
+        <div class="circle yell" color="yellow"></div>
+        <div class="circle" color="green"></div>
+    </div>
+    
+    
+</body>
+
+<script>
+    const circles = document.getElementsByClassName('circle')
+let activeLight = 0;
+
+setInterval(() => {
+	changeLight();
+}, 2000);
+
+function changeLight() {
+	circles[activeLight].className = 'circle';
+	activeLight++;
+	
+	if(activeLight > 2) {
+		activeLight = 0;
+	}
+    // setInterval(()=>{
+    //     changeLight();
+    // }, 1000)
+    // function changeLight(){
+    //     circles[activeLight].className='yell';
+    //     activeLight++;
+    // }
+	
+	const currentLight = circles[activeLight]
+	
+	currentLight.classList.add(currentLight.getAttribute('color'));
+}
+
+
+
+</script>
+</html>
